@@ -1,0 +1,12 @@
+<br>
+<div class="container">
+<%= simple_form_for @list do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+<br>
+<br>
+<%= link_to("Volver a las listas", lists_path) %>
+</div>
+

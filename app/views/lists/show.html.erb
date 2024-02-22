@@ -1,0 +1,25 @@
+<div class="container">
+<h1><%= @list.name %></h1>
+<br>
+
+
+  <% @list.movies.each do |movie| %>
+  <div class="card-trip">
+    <img src= <%= movie.poster_url %> />
+    <div class="card-trip-infos">
+      <h2><%= movie.title %></h2>
+      <p><%= movie.overview %></p>
+    </div>
+  </div>
+  <% end %>
+
+
+
+
+<br>
+<%= link_to("Volver a las listas", lists_path) %>
+<br>
+<%= link_to("Agregar Bookmark", new_list_bookmark_path(@list)) %>
+</div>
+
+
