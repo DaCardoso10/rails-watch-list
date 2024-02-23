@@ -5,6 +5,10 @@ before_action :set_list, except: [:destroy]
     @bookmark = Bookmark.new
   end
 
+  def show
+    @bookmark = Bookmark.find(params[:id])
+  end
+
   def create
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list

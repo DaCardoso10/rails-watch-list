@@ -29,6 +29,8 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
+gem "dotenv-rails"
+
 gem "bootstrap", "~> 5.2"
 
 gem "autoprefixer-rails"

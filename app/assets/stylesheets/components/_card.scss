@@ -4,6 +4,27 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.container2 {
+  margin-top: 30px;
+
+}
+
+.jumbotron {
+  background-image: url(image-path('banner.jpg'));
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+}
+
+h1.display-4 {
+  text-align: center;
+  margin: 0 auto;
+  color: white;
+  font-weight: bold;
+  padding: 47px;
+  margin-left: 130px;
+}
+
 .card-trip > img {
   height: 200px;
   width: 100%;
@@ -50,7 +71,8 @@
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 50px rgba(0,0,0,0.2);
   text-decoration: none;
+  background-image: url(image-path('card.png'))
 }

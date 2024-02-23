@@ -1,19 +1,26 @@
 <div class="container">
-<h1><%= @list.name %></h1>
+  <div>
+
+    <h1 class="display-4"><%= @list.name %></h1>
+
+  </div>
 <br>
 
 
-  <% @list.movies.each do |movie| %>
+
+<% @list.movies.each do |movie| %>
   <div class="card-trip">
     <img src= <%= movie.poster_url %> />
     <div class="card-trip-infos">
       <h2><%= movie.title %></h2>
       <p><%= movie.overview %></p>
     </div>
+      <% movie.bookmarks.each do |bookmark| %>
+        <h6> Comentario: <%= bookmark.comment %> </h6>
+        <h5><%= link_to "Borrar", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Seguro que quiere remover #{movie.title} de su lista #{@list.name}"}, class: 'text-danger' %></h5>
+      <% end %>
   </div>
-  <% end %>
-
-
+<% end %>
 
 
 <br>
@@ -21,5 +28,3 @@
 <br>
 <%= link_to("Agregar Bookmark", new_list_bookmark_path(@list)) %>
 </div>
-
-

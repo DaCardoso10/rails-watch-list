@@ -1,18 +1,19 @@
-<h1>Mi lista de peliculas</h1>
+<div class="jumbotron jumbotron-fluid">
 
+  <h1 class="display-4">Mis listas de peliculas</h1>
 
-<div class="row">
-  <% @lists.each do |list| %>
-    <div class="col-md-4 mb-4">
-      <div class="card custom-card">
+</div>
+<div class="container2">
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="col-md-4 mb-4">
         <div class="cards">
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/foto-gratis/vista-elementos-cine-3d_23-2150720822.jpg?w=996&t=st=1708629538~exp=1708630138~hmac=3bcc79f4531f990d16a466f270ee035195498a878228f07635b73847baa0af50)">
+          <div class="card-category" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_tag "card.png" %>)'>
             <%= link_to list.name, list_path(list), style: "text-decoration: none; color: inherit" %>
           </div>
-      </div>
+        </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
+  <%= link_to("Nueva Lista", new_list_path) %>
 </div>
-
-<%= link_to("Nueva Lista", new_list_path) %>

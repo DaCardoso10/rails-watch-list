@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :lists do
-    resources :bookmarks, only: [:new, :create]
+    resources :bookmarks, only: [:new, :create, :show]
   end
   resources :bookmarks, only: [:destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
