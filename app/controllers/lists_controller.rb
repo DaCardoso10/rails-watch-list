@@ -20,6 +20,11 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list.destroy
+    redirect_to @list
+  end
+
   private
 
   def list_params

@@ -1,12 +1,140 @@
-.navbar-lewagon {
+// Navbar
+.navbar {
+  height: 50px;
+  background-color: #333;
+  display: flex;
   justify-content: space-between;
-  background: white;
+  align-items: center;
+  padding: 0 10px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar a:hover {
+  color: #ddd;
 }
+
+.navbar h1 {
+  color: white;
+  margin: 0;
+}
+
+.navbar h6 {
+  color: white;
+  margin: 0;
+}
+
+// Banner
+
+.banner {
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: left;
+  background-color: grey;
+  background-blend-mode: darken, luminosity;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner h1 {
+  color: white;
+  margin: 0;
+}
+
+// Card
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  background-color: #f0f0f0;
+}
+body {
+  color: #999999;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+}
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.btn {
+  background-color: white;
+  border: 1px solid #cccccc;
+  color: #696969;
+  padding: 0.5rem;
+  text-transform: lowercase;
+}
+.btn--block {
+  display: block;
+  width: 100%;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cards__item {
+  display: flex;
+  padding: 1rem;
+}
+@media (min-width: 40rem) {
+  .cards__item {
+    width: 50%;
+  }
+}
+@media (min-width: 56rem) {
+  .cards__item {
+    width: 33.3333%;
+  }
+}
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.card__title {
+  color: #696969;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.card__text {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+

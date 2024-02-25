@@ -1,28 +1,30 @@
-<div class="container">
-  <div class="card-category"
-  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, width: 400, crop: :fill if @list.photo.attached? %>')">
-  <h1 class="display-4"><%= @list.name %></h1>
+<header class="navbar">
+  <%= link_to "Inicio", root_path, class: "navbar__link" %>
+  <%= link_to "Mis listas", lists_path, class: "navbar__link" %>
+  <h6>🎞 Mis listas de peliculas 🎞</h6>
+  <%= link_to "Agregar Pelicula", new_list_bookmark_path(@list), class: "navbar__link" %>
+  <%= link_to "Eliminar lista", list_path(@list), method: :delete, data: { confirm: "Estás seguro?" }, class: "navbar__link" %>
+</header>
+
+<div class="banner" style="background-image:  url('<%= cl_image_path @list.photo.key, height: 300, width: 400, crop: :fill if @list.photo.attached? %>')">
+  <h1><%= @list.name %></h1>
 </div>
-<br>
 
 
-<% @list.movies.each do |movie| %>
-  <div class="card-trip">
-    <img src= <%= movie.poster_url %> />
-    <div class="card-trip-infos">
-      <h2><%= movie.title %></h2>
-      <p><%= movie.overview %></p>
-    </div>
-      <% movie.bookmarks.each do |bookmark| %>
-        <h6> Comentario: <%= bookmark.comment %> </h6>
-        <h5><%= link_to "Borrar", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Seguro que quiere remover #{movie.title} de su lista #{@list.name}"}, class: 'text-danger' %></h5>
-      <% end %>
-  </div>
-<% end %>
-
-
-<br>
-<%= link_to("Volver a las listas", lists_path) %>
-<br>
-<%= link_to("Agregar Bookmark", new_list_bookmark_path(@list)) %>
-</div>
+<ul class="cards">
+  <% @list.movies.each do |movie| %>
+    <li class="cards__item">
+      <div class="card">
+        <div><img src= <%= movie.poster_url %> /></div>
+        <div class="card__content">
+          <div class="card__title"><%= movie.title %></div>
+          <p class="card__text"><%= movie.overview %></p>
+          <% movie.bookmarks.where(list: @list).each do |bookmark| %>
+          <button class="btn btn--block card__btn"><%= link_to "ELIMINAR PELICULA DE LA LISTA", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Seguro que quiere remover #{movie.title} de su lista #{@list.name}"} %></button>
+          <p class="card__text"> Comentario: <%= bookmark.comment %> </p>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
